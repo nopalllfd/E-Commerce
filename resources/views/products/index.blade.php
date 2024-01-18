@@ -1,4 +1,25 @@
-@include('./shared/header')
+<?php
+// 	$data = session()->get('login');
+// 	if (session()->has($data)) {
+// 		include('./shared/header');
+// } else {
+	
+// 	
+// }
+?>
+	{{$data = session()->get('login')}}
+@if (session()->has($data)){
+	@include('./shared/login');
+}
+	
+@else{
+@include('./shared/header');
+}
+@endif
+
+
+
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <link rel="stylesheet" href="style.css">
 <div class="container mt-100">
@@ -39,6 +60,9 @@
 </div></a>
 <div class="card-body text-center">
 <h4 class="card-title">Hoodie</h4>
+<div>
+
+</div>
 <p class="text-muted">Starting from $9</p><a class="btn btn-outline-primary btn-sm" href="#" data-abc="true">View Products</a>
 </div>
 </div>

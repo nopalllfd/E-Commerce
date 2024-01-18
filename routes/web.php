@@ -23,10 +23,10 @@ Route::delete('products/{id}', [ProductController::class, 'destroy'])->name('pro
 
 
 Route::get('products/{id}', [ProductController::class, 'show']);
-// Login
+// auth
 route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/custom-login', [LoginController::class, 'customLogin'])->name('login.custom');
 Route::get('/register', [LoginController::class, 'registration'])->name('register');
 Route::post('/custom-registration', [LoginController::class, 'customRegistration'])->name('register.custom');
-Route::get('/signout', [LoginController::class, 'signOut'])->name('signout');
+Route::get('/logout', [LoginController::class, 'signOut'])->name('signout');
