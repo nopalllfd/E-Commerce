@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +25,17 @@ Route::delete('products/{id}', [ProductController::class, 'destroy'])->name('pro
 
 Route::get('products/{id}', [ProductController::class, 'show']);
 // auth
+Route::group(['middleware'=>'auth'], function(){
+    route::get('/', function(){
+        return view('products/index');
+    });
+});
+// route::get('/registform', function(){
+//     return view('auth.register');
+// });
+// route::get('/login', function(){
+//     return view('auth.register');
+// });
 route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/custom-login', [LoginController::class, 'customLogin'])->name('login.custom');

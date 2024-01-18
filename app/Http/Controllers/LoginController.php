@@ -20,8 +20,10 @@ class LoginController extends Controller
         ]);
         $data = $request->only('email', 'password');
         if (Auth::attempt($data)) {
-            $data = $request->session()->all();
-            $request->session()->put('login', 'yes');
+
+            $request->session()->put('login');
+            $data = session()->get('login');
+            
             return redirect()->route('dashboard')
                 ->withSuccess('Signed in');
         }

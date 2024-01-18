@@ -15,7 +15,7 @@
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
 
-                <form   action={{route ('login.custom')}} method="POST">
+                <form   action={{route ('register.custom')}} method="POST">
                   @csrf
 
                   <div class="d-flex align-items-center ">
@@ -42,7 +42,7 @@
                     <button class="btn btn-dark btn-lg btn-block" type="submit">Register</button>
                   </div>
 
-                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Already have an account? <a href="/register"
+                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Already have an account? <a href="/login"
                       style="color: #393f81;">Login here</a></p>
                   <a href="#!" class="small text-muted">Terms of use.</a>
                   <a href="#!" class="small text-muted">Privacy policy</a>
