@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\auth;
 |
 */
 // product
-Route::get('/', [ProductController::class, 'index'])->name('products.index');
 Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('products', [ProductController::class, 'store'])->name('products.store');
 Route::get('products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
@@ -26,10 +25,9 @@ Route::delete('products/{id}', [ProductController::class, 'destroy'])->name('pro
 Route::get('products/{id}', [ProductController::class, 'show']);
 // auth
 Route::group(['middleware'=>'auth'], function(){
-    route::get('/', function(){
-        return view('products/index');
-    });
-});
+    Route::get('/', [ProductController::class, 'index'])->name('products.index');
+
+}); 
 // route::get('/registform', function(){
 //     return view('auth.register');
 // });
@@ -37,6 +35,7 @@ Route::group(['middleware'=>'auth'], function(){
 //     return view('auth.register');
 // });
 route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
+
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/custom-login', [LoginController::class, 'customLogin'])->name('login.custom');
 Route::get('/register', [LoginController::class, 'registration'])->name('register');

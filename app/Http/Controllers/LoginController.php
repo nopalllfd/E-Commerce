@@ -24,7 +24,7 @@ class LoginController extends Controller
             $request->session()->put('login');
             $data = session()->get('login');
             
-            return redirect()->route('dashboard')
+            return redirect()->route('products.index')
                 ->withSuccess('Signed in');
         }
         return redirect("login")->withSuccess('Login details are not valid');
@@ -55,7 +55,7 @@ class LoginController extends Controller
     public function dashboard()
     {
         if (auth::check()) {
-            return view('products.index');
+            return route('products.index');
         }
         return redirect("login")->withSuccess('You are not allowed to access');
     }
@@ -65,4 +65,5 @@ class LoginController extends Controller
         Auth::logout();
         return Redirect('login');
     }
+   
 }

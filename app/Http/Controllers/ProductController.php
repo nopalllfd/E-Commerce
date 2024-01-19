@@ -1,16 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Redirect;
+
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): Response
+    // public function index(): Response
+    public function index()
     {
         $products = [
             [
@@ -27,6 +30,9 @@ class ProductController extends Controller
             ]
         ];
         return response(view('products.index', ['products' => $products]));
+        // $test = "Hello World";
+        // // return view('products.index', compact('test'));
+        // return view('products.index', ['test' => $test]);
     }
 
     /**
